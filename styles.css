@@ -73,7 +73,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 
 /* ======== NAV ======== */
 .nav{
-  position:fixed;top:38px;left:0;right:0;z-index:100;
+  position:fixed;top:0;left:0;right:0;z-index:100;
   padding:20px 0;
   transition:background var(--t), padding var(--t), box-shadow var(--t), backdrop-filter var(--t);
 }
@@ -219,7 +219,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
   color:transparent;font-style:italic;font-weight:500;
 }
 .lead{font-size:clamp(1.05rem,1.3vw,1.2rem);max-width:680px;color:rgba(255,255,255,.78);margin-bottom:38px;font-weight:300;line-height:1.75}
-.hero__cta{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:42px}
+.hero__cta{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:70px}
 
 /* ---- Hero meta strip (business card info) ---- */
 .hero__meta{
@@ -556,26 +556,7 @@ a.hero__meta-val:hover{color:var(--gold)}
 .reveal{opacity:0;transform:translateY(40px);transition:opacity 1s ease,transform 1s ease}
 .reveal.is-visible{opacity:1;transform:translateY(0)}
 
-/* ======== TOP BAR ======== */
-.topbar{
-  background:rgba(5,8,15,.92);
-  backdrop-filter:saturate(180%) blur(20px);
-  -webkit-backdrop-filter:saturate(180%) blur(20px);
-  color:rgba(255,255,255,.7);
-  font-size:12px;padding:10px 0;letter-spacing:.5px;
-  position:fixed;top:0;left:0;right:0;z-index:102;
-  border-bottom:1px solid rgba(255,255,255,.06);
-}
-.topbar__inner{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
-.topbar__right{display:flex;gap:20px}
-.topbar a{color:var(--gold);font-weight:500}
-.topbar a:hover{color:var(--gold-soft)}
-.nav{top:38px}
-@media (max-width:720px){
-  .topbar{font-size:11px}
-  .topbar__inner span:first-child{display:none}
-  .nav{top:0}
-}
+/* (topbar removed — nav sits at top:0) */
 
 /* ======== VIDEO REEL ======== */
 .video-reel{background:transparent}
