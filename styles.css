@@ -118,10 +118,12 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 
 /* ======== BUTTONS ======== */
 .btn{
-  display:inline-flex;align-items:center;justify-content:center;
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
   padding:15px 30px;border-radius:2px;font-weight:600;font-size:13px;
   transition:all var(--t);cursor:pointer;letter-spacing:1.5px;text-transform:uppercase;
 }
+.btn__icon{flex-shrink:0;transition:transform var(--t)}
+.btn:hover .btn__icon{transform:rotate(-12deg) scale(1.1)}
 .btn--primary{
   background:var(--grad-gold);color:#0a0e14;
   box-shadow:0 14px 32px rgba(212,175,55,.35),inset 0 1px 0 rgba(255,255,255,.5);
