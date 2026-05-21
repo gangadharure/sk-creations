@@ -72,6 +72,6 @@ form.addEventListener('submit', e => {
   );
   note.style.color = '';
   note.textContent = '✓ Opening WhatsApp to send your enquiry…';
-  window.open(`https://wa.me/917499757782?text=${msg}`, '_blank');
+  window.open(`https://wa.me/918208423922?text=${msg}`, '_blank');
   form.reset();
 });

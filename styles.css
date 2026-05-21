@@ -390,33 +390,73 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 .map iframe{width:100%;height:100%;border:0;display:block;filter:grayscale(.2) contrast(1.05)}
 
 /* ======== RESPONSIVE ======== */
+@media (max-width:1024px){
+  .grid--gallery{grid-template-columns:repeat(3,1fr)}
+}
 @media (max-width:960px){
   .grid--split{grid-template-columns:1fr;gap:40px}
   .grid--gallery{grid-template-columns:repeat(2,1fr);grid-auto-rows:200px}
   .tile--wide{grid-column:span 2}
   .footer__inner{grid-template-columns:1fr 1fr;gap:30px}
   .contact__form{padding:26px}
+  .review-summary{flex-direction:column;gap:18px}
+  .vcard{aspect-ratio:4/5}
 }
 @media (max-width:720px){
+  .container{padding:0 18px}
   .nav__toggle{display:flex}
   .nav__links{
     position:fixed;top:0;right:-100%;width:80%;max-width:320px;height:100vh;
     background:#fff;flex-direction:column;align-items:flex-start;justify-content:center;
     padding:40px;gap:24px;transition:right var(--t);box-shadow:-10px 0 30px rgba(0,0,0,.15);
+    overflow-y:auto;
   }
   .nav__links.is-open{right:0}
-  .nav__links a{color:var(--ink)!important;font-size:18px}
+  .nav__links a{color:var(--ink)!important;font-size:18px;width:100%}
+  .nav__links .btn--pill{width:auto}
   .nav.is-mobile-open .nav__toggle span:nth-child(1){transform:translateY(7px) rotate(45deg);background:var(--ink)}
   .nav.is-mobile-open .nav__toggle span:nth-child(2){opacity:0}
   .nav.is-mobile-open .nav__toggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg);background:var(--ink)}
-  .section{padding:80px 0}
-  .section__head{margin-bottom:50px}
-  .hero__stats{gap:30px}
-  .hero__stats strong{font-size:28px}
-  .grid--gallery{grid-template-columns:1fr;grid-auto-rows:240px}
+  .section{padding:70px 0}
+  .section__head{margin-bottom:40px}
+  .hero{min-height:90vh}
+  .hero__content{padding:100px 18px 60px}
+  .hero__stats{gap:24px}
+  .hero__stats div{flex:1 1 40%}
+  .hero__stats strong{font-size:26px}
+  .hero__cta{flex-direction:column;align-items:stretch}
+  .hero__cta .btn{width:100%}
+  .grid--gallery{grid-template-columns:1fr;grid-auto-rows:230px;gap:12px}
   .tile--wide,.tile--tall{grid-column:auto;grid-row:auto}
-  .contact__form{grid-template-columns:1fr;padding:24px}
-  .footer__inner{grid-template-columns:1fr;gap:30px}
-  .about__badge{right:10px;bottom:-18px;padding:14px 20px}
+  .grid--videos{grid-template-columns:1fr}
+  .vcard{aspect-ratio:16/12}
+  .contact__form{grid-template-columns:1fr;padding:22px;gap:14px}
+  .footer__inner{grid-template-columns:1fr;gap:28px;text-align:left}
+  .footer__bar .container{flex-direction:column;text-align:center;gap:6px}
+  .about__badge{right:10px;bottom:-18px;padding:12px 18px}
   .about__badge strong{font-size:20px}
+  .about__badge span{font-size:11px}
+  .review-summary__score strong{font-size:44px}
+  .marquee__track{font-size:12px;gap:32px}
+  .marquee{padding:14px 0}
+  .topbar__right{gap:12px;font-size:12px}
+  .whatsapp-fab{width:52px;height:52px;bottom:18px;right:18px}
+  .whatsapp-fab svg{width:24px;height:24px}
+  .map{height:200px}
+  .brand__text small{display:none}
+  .brand__mark{width:38px;height:38px;font-size:17px}
+  .brand__text strong{font-size:15px}
 }
+@media (max-width:420px){
+  .hero h1{font-size:2rem}
+  .lead{font-size:.95rem}
+  .section__head h2{font-size:1.7rem}
+  .card__body{padding:20px}
+  .review{padding:20px}
+  .contact__list li{padding:12px 0}
+}
+
+/* Prevent any horizontal scroll glitches on small viewports */
+html,body{max-width:100vw;overflow-x:hidden}
+img,video,iframe{max-width:100%}
+
