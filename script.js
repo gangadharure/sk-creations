@@ -1,5 +1,13 @@
 /* S K Creations — interactive scripts */
 
+// Force every page refresh to land at the top (Home)
+if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+// Strip any hash on load so URL stays clean and view is at top
+if (window.location.hash) {
+  history.replaceState(null, '', window.location.pathname + window.location.search);
+}
+window.scrollTo(0, 0);
+
 // Year
 document.getElementById('year').textContent = new Date().getFullYear();
 
