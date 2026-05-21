@@ -74,17 +74,18 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 /* ======== NAV ======== */
 .nav{
   position:fixed;top:0;left:0;right:0;z-index:100;
-  padding:20px 0;
+  padding:16px 0;
+  background:rgba(5,8,15,.78);
+  backdrop-filter:saturate(180%) blur(22px);
+  -webkit-backdrop-filter:saturate(180%) blur(22px);
+  border-bottom:1px solid rgba(255,255,255,.05);
   transition:background var(--t), padding var(--t), box-shadow var(--t), backdrop-filter var(--t);
 }
 .nav.is-scrolled{
-  top:0;
-  background:rgba(7,10,18,.85);
-  backdrop-filter:saturate(180%) blur(24px);
-  -webkit-backdrop-filter:saturate(180%) blur(24px);
-  padding:12px 0;
+  background:rgba(5,8,15,.92);
+  padding:10px 0;
   box-shadow:0 12px 40px rgba(0,0,0,.5);
-  border-bottom:1px solid rgba(212,175,55,.15);
+  border-bottom:1px solid rgba(212,175,55,.18);
 }
 .nav__inner{display:flex;align-items:center;justify-content:space-between;gap:24px}
 
