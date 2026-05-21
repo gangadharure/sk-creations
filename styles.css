@@ -78,12 +78,13 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
   transition:background var(--t), padding var(--t), box-shadow var(--t), backdrop-filter var(--t);
 }
 .nav.is-scrolled{
-  background:rgba(7,10,18,.72);
+  top:0;
+  background:rgba(7,10,18,.85);
   backdrop-filter:saturate(180%) blur(24px);
   -webkit-backdrop-filter:saturate(180%) blur(24px);
   padding:12px 0;
   box-shadow:0 12px 40px rgba(0,0,0,.5);
-  border-bottom:1px solid rgba(255,255,255,.06);
+  border-bottom:1px solid rgba(212,175,55,.15);
 }
 .nav__inner{display:flex;align-items:center;justify-content:space-between;gap:24px}
 
@@ -489,10 +490,12 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 
 /* ======== TOP BAR ======== */
 .topbar{
-  background:#05080f;
+  background:rgba(5,8,15,.92);
+  backdrop-filter:saturate(180%) blur(20px);
+  -webkit-backdrop-filter:saturate(180%) blur(20px);
   color:rgba(255,255,255,.7);
   font-size:12px;padding:10px 0;letter-spacing:.5px;
-  position:relative;z-index:101;
+  position:fixed;top:0;left:0;right:0;z-index:102;
   border-bottom:1px solid rgba(255,255,255,.06);
 }
 .topbar__inner{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
