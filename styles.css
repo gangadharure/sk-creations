@@ -163,7 +163,8 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 .section__head--light .section__sub{color:rgba(255,255,255,.75)}
 
 /* ======== GRIDS ======== */
-.grid{display:grid;gap:28px}
+.grid{display:grid;gap:28px;min-width:0}
+.grid > *{min-width:0}
 .grid--services{grid-template-columns:repeat(auto-fit,minmax(290px,1fr))}
 .grid--split{grid-template-columns:1fr 1fr;align-items:center;gap:60px}
 .grid--why{grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:30px}
@@ -226,8 +227,12 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 .tile.is-hidden{display:none}
 
 /* ======== ABOUT ======== */
-.about__media{position:relative}
-.about__media img{border-radius:var(--radius-lg);box-shadow:var(--shadow-lg)}
+.about__media{position:relative;min-width:0;width:100%}
+.about__media img,
+.about__media video{
+  width:100%;height:auto;max-height:480px;aspect-ratio:4/3;object-fit:cover;
+  border-radius:var(--radius-lg);box-shadow:var(--shadow-lg);display:block;
+}
 .about__badge{
   position:absolute;bottom:-24px;right:-10px;
   background:var(--gold);color:var(--navy);padding:18px 26px;border-radius:var(--radius);
@@ -356,7 +361,6 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
   color:#fff;font-weight:600;letter-spacing:.5px;
   background:linear-gradient(0deg,rgba(8,24,43,.92),transparent);
 }
-.about__media video{width:100%;border-radius:var(--radius-lg);box-shadow:var(--shadow-lg);display:block}
 
 /* ======== REVIEWS ======== */
 .reviews{background:#fff}
