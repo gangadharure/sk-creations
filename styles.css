@@ -398,6 +398,8 @@ a.hero__meta-val:hover{color:var(--gold)}
   background:linear-gradient(0deg,rgba(5,8,15,.95),transparent);
   transform:translateY(20%);opacity:0;transition:var(--t);
 }
+.tile figcaption strong{display:block;font-size:11px;line-height:1.4;letter-spacing:2px}
+.tile figcaption small{display:block;margin-top:6px;font-family:'Inter Tight','Inter',system-ui,sans-serif;font-size:9px;line-height:1.35;letter-spacing:1.2px;text-transform:none;color:rgba(255,255,255,.8)}
 .tile:hover figcaption{transform:translateY(0);opacity:1}
 .tile--wide{grid-column:span 2}
 .tile--tall{grid-row:span 2}
