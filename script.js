@@ -131,7 +131,7 @@ filters.addEventListener('click', e => {
 });
 
 // Reveal on scroll
-const revealTargets = document.querySelectorAll('.section, .card, .tile, .quote, .why__item, .hero__stats div');
+const revealTargets = document.querySelectorAll('.section:not(.gallery), .card, .quote, .why__item, .hero__stats div');
 revealTargets.forEach(el => el.classList.add('reveal'));
 const io = new IntersectionObserver(entries => {
   entries.forEach(e => {
@@ -142,6 +142,9 @@ const io = new IntersectionObserver(entries => {
   });
 }, { threshold: 0.12 });
 revealTargets.forEach(el => io.observe(el));
+
+const gallerySection = document.getElementById('gallery');
+if (gallerySection) gallerySection.classList.add('is-visible');
 
 // Contact form (front-end only — wire to Formspree/Vercel function later)
 const form = document.getElementById('contactForm');
