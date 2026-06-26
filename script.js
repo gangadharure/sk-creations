@@ -52,12 +52,20 @@ const galleryProjects = Array.from({ length: 73 }, (_, index) => {
 });
 
 galleryGrid.innerHTML = galleryProjects.map(project => `
-  <figure class="tile ${project.size}" data-cat="${project.cat}">
+  <figure class="tile ${project.size}" data-cat="${project.cat}" tabindex="0" role="button" aria-label="Open ${project.alt}">
     <img loading="lazy" src="${project.image}" alt="${project.alt}">
   </figure>
 `).join('');
 
 const tiles = document.querySelectorAll('#galleryGrid .tile');
+
+const openLightbox = image => {
+  if (!image) return;
+  lightboxImage.src = image.src;
+  lightboxImage.alt = image.alt;
+  galleryLightbox.classList.add('is-open');
+  galleryLightbox.setAttribute('aria-hidden', 'false');
+};
 
 const closeLightbox = () => {
   galleryLightbox.classList.remove('is-open');
@@ -65,15 +73,18 @@ const closeLightbox = () => {
   lightboxImage.removeAttribute('src');
 };
 
-tiles.forEach(tile => {
-  tile.addEventListener('click', () => {
-    const image = tile.querySelector('img');
-    if (!image) return;
-    lightboxImage.src = image.src;
-    lightboxImage.alt = image.alt;
-    galleryLightbox.classList.add('is-open');
-    galleryLightbox.setAttribute('aria-hidden', 'false');
-  });
+galleryGrid.addEventListener('click', e => {
+  const tile = e.target.closest('.tile');
+  if (!tile || tile.classList.contains('is-hidden')) return;
+  openLightbox(tile.querySelector('img'));
+});
+
+galleryGrid.addEventListener('keydown', e => {
+  if (e.key !== 'Enter' && e.key !== ' ') return;
+  const tile = e.target.closest('.tile');
+  if (!tile || tile.classList.contains('is-hidden')) return;
+  e.preventDefault();
+  openLightbox(tile.querySelector('img'));
 });
 
 lightboxClose.addEventListener('click', closeLightbox);
@@ -95,6 +106,8 @@ filters.addEventListener('click', e => {
     t.classList.toggle('is-hidden', cat !== 'all' && t.dataset.cat !== cat);
   });
 });
+
+filters.querySelector('[data-filter="all"]')?.click();
 
 // Reveal on scroll
 const revealTargets = document.querySelectorAll('.section:not(.gallery), .card, .quote, .why__item, .hero__stats div');
