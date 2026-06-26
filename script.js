@@ -34,6 +34,10 @@ links.querySelectorAll('a').forEach(a =>
 // Gallery filters
 const filters = document.getElementById('filters');
 const galleryGrid = document.getElementById('galleryGrid');
+const galleryLightbox = document.getElementById('galleryLightbox');
+const lightboxImage = document.getElementById('lightboxImage');
+const lightboxClose = document.getElementById('lightboxClose');
+const lightboxBackdrop = document.getElementById('lightboxBackdrop');
 
 const galleryProjects = Array.from({ length: 73 }, (_, index) => {
   const number = String(index + 1).padStart(2, '0');
@@ -54,6 +58,32 @@ galleryGrid.innerHTML = galleryProjects.map(project => `
 `).join('');
 
 const tiles = document.querySelectorAll('#galleryGrid .tile');
+
+const closeLightbox = () => {
+  galleryLightbox.classList.remove('is-open');
+  galleryLightbox.setAttribute('aria-hidden', 'true');
+  lightboxImage.removeAttribute('src');
+};
+
+tiles.forEach(tile => {
+  tile.addEventListener('click', () => {
+    const image = tile.querySelector('img');
+    if (!image) return;
+    lightboxImage.src = image.src;
+    lightboxImage.alt = image.alt;
+    galleryLightbox.classList.add('is-open');
+    galleryLightbox.setAttribute('aria-hidden', 'false');
+  });
+});
+
+lightboxClose.addEventListener('click', closeLightbox);
+lightboxBackdrop.addEventListener('click', closeLightbox);
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape' && galleryLightbox.classList.contains('is-open')) {
+    closeLightbox();
+  }
+});
 
 filters.addEventListener('click', e => {
   const btn = e.target.closest('.chip');

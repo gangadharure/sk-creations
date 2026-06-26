@@ -240,6 +240,14 @@
     </div>
   </section>
 
+  <div class="lightbox" id="galleryLightbox" aria-hidden="true">
+    <button class="lightbox__backdrop" id="lightboxBackdrop" aria-label="Close image viewer"></button>
+    <div class="lightbox__dialog" role="dialog" aria-modal="true" aria-label="Project image viewer">
+      <button class="lightbox__close" id="lightboxClose" aria-label="Close image viewer">×</button>
+      <img class="lightbox__image" id="lightboxImage" alt="Expanded project image" />
+    </div>
+  </div>
+
   <!-- ============ ABOUT ============ -->
   <section class="section about" id="about">
     <div class="container grid grid--split">
