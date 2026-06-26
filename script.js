@@ -33,6 +33,26 @@ links.querySelectorAll('a').forEach(a =>
 
 // Gallery filters
 const filters = document.getElementById('filters');
+const galleryGrid = document.getElementById('galleryGrid');
+
+const galleryProjects = Array.from({ length: 73 }, (_, index) => {
+  const number = String(index + 1).padStart(2, '0');
+  const categories = ['glazing', 'acp', 'interior', 'window', 'railing'];
+  const sizePattern = ['', '', '', 'tile--wide', '', '', 'tile--tall'];
+  return {
+    image: `assets/images/photo-${number}.jpg`,
+    alt: `Project photo ${number}`,
+    cat: categories[index % categories.length],
+    size: sizePattern[index % sizePattern.length],
+  };
+});
+
+galleryGrid.innerHTML = galleryProjects.map(project => `
+  <figure class="tile ${project.size}" data-cat="${project.cat}">
+    <img loading="lazy" src="${project.image}" alt="${project.alt}">
+  </figure>
+`).join('');
+
 const tiles = document.querySelectorAll('#galleryGrid .tile');
 
 filters.addEventListener('click', e => {
